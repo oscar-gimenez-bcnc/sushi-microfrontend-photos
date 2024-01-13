@@ -11,7 +11,7 @@ export const downloadFile = async ({ id, content, extension }: DownloadFileProps
 
   const downloadLink = document.createElement('a');
   downloadLink.href = url;
-  downloadLink.setAttribute('download', `album_${id}.${extension}`);
+  downloadLink.setAttribute('download', `photo_${id}.${extension}`);
   document.body.appendChild(downloadLink);
   downloadLink.click();
   document.body.removeChild(downloadLink);

@@ -1,9 +1,9 @@
-import { type IAlbum } from '@/domain/models/IAlbum';
-import { type IAlbumRepository } from '@/domain/ports/IAlbumRepository';
+import { type IPhoto } from '@/domain/models/IPhoto';
+import { type IPhotoRepository } from '@/domain/ports/IPhotoRepository';
 
 // This adapter simulates an empty data source
-export function createEmptyAlbumRepository(): IAlbumRepository {
-  async function list(): Promise<IAlbum[]> {
+export function createEmptyPhotoRepository(): IPhotoRepository {
+  async function list(): Promise<IPhoto[]> {
     return [];
   }
 

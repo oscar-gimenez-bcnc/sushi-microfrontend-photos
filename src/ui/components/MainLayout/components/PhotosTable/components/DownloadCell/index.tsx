@@ -1,12 +1,12 @@
-import { type IAlbum } from '@/domain/models/IAlbum';
+import { type IPhoto } from '@/domain/models/IPhoto';
 import IconDownload from '@/ui/components/shared/icons/IconDownload';
 import useDownloadCell from './useDownloadCell';
 
 interface DownloadCellProps {
-  album: IAlbum;
+  photo: IPhoto;
 }
 
-const DownloadCell: React.FC<DownloadCellProps> = ({ album }) => {
+const DownloadCell: React.FC<DownloadCellProps> = ({ photo }) => {
   const {
     actions: { handleDownloadClick }
   } = useDownloadCell();
@@ -17,7 +17,7 @@ const DownloadCell: React.FC<DownloadCellProps> = ({ album }) => {
       type="button"
       className="btn btn-ghost btn-xs "
       onClick={() => {
-        void handleDownloadClick(album);
+        void handleDownloadClick(photo);
       }}
     >
       <IconDownload className="h-6 w-6 py-1" />

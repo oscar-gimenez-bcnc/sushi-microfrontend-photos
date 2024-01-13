@@ -1,43 +1,43 @@
-import { type IAlbum } from '@/domain/models/IAlbum';
+import { type IPhoto } from '@/domain/models/IPhoto';
 import { createContext, useState } from 'react';
 
-interface IAlbumsTableContext {
+interface IPhotosTableContext {
   isLoading: boolean;
   setIsLoading: (isLoading: boolean) => void;
   errorMessage: string | undefined;
   setErrorMessage: (errorMessage: string | undefined) => void;
-  albums: IAlbum[];
-  setAlbums: (albums: IAlbum[]) => void;
+  photos: IPhoto[];
+  setPhotos: (photos: IPhoto[]) => void;
 }
 
-const AlbumsTableContext = createContext<IAlbumsTableContext>({
+const PhotosTableContext = createContext<IPhotosTableContext>({
   isLoading: false,
   setIsLoading: () => {},
   errorMessage: undefined,
   setErrorMessage: () => {},
-  albums: [],
-  setAlbums: () => {}
+  photos: [],
+  setPhotos: () => {}
 });
 
-interface AlbumsTableProviderProps {
+interface PhotosTableProviderProps {
   children: React.ReactNode;
 }
 
-const AlbumsTableProvider: React.FC<AlbumsTableProviderProps> = ({ children }) => {
+const PhotosTableProvider: React.FC<PhotosTableProviderProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
-  const [albums, setAlbums] = useState<IAlbum[]>([]);
+  const [photos, setPhotos] = useState<IPhoto[]>([]);
 
   const contextValue = {
     isLoading,
     setIsLoading,
     errorMessage,
     setErrorMessage,
-    albums,
-    setAlbums
+    photos,
+    setPhotos
   };
 
-  return <AlbumsTableContext.Provider value={contextValue}>{children}</AlbumsTableContext.Provider>;
+  return <PhotosTableContext.Provider value={contextValue}>{children}</PhotosTableContext.Provider>;
 };
 
-export { AlbumsTableContext, AlbumsTableProvider };
+export { PhotosTableContext, PhotosTableProvider };

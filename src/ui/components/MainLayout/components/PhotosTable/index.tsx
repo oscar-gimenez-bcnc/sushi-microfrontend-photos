@@ -1,16 +1,17 @@
 import TableHead from './components/TableHead';
-import useAlbumsTable from './useAlbumsTable';
+import usePhotosTable from './usePhotosTable';
 import LabelCell from './components/LabelCell';
 import DownloadCell from './components/DownloadCell';
 import ErrorData from './components/ErrorData';
-import { type IAlbum } from '@/domain/models/IAlbum';
+import { type IPhoto } from '@/domain/models/IPhoto';
 import EmptyData from './components/EmptyData';
 import Loader from './components/Loader';
+import PhotoCell from './components/PhotoCell';
 
-const AlbumsTable: React.FC = () => {
+const PhotosTable: React.FC = () => {
   const {
-    states: { albums, errorMessage, isLoading }
-  } = useAlbumsTable();
+    states: { photos, errorMessage, isLoading }
+  } = usePhotosTable();
 
   return errorMessage === undefined ? (
     <div className="overflow-x-auto">
@@ -19,20 +20,23 @@ const AlbumsTable: React.FC = () => {
         <tbody>
           {isLoading === true ? (
             <Loader />
-          ) : albums.length === 0 ? (
+          ) : photos.length === 0 ? (
             <EmptyData />
           ) : (
-            albums.map((album: IAlbum) => (
-              <tr key={album.id}>
-                <th>{album.id}</th>
-                <td aria-label="User ID cell">
-                  <LabelCell label={album.userId.toString()} />
+            photos.map((photo: IPhoto) => (
+              <tr key={photo.id}>
+                <th>{photo.id}</th>
+                <td aria-label="Album ID cell">
+                  <LabelCell label={photo.albumId.toString()} />
                 </td>
                 <td aria-label="Title cell">
-                  <LabelCell label={album.title} />
+                  <LabelCell label={photo.title} />
+                </td>
+                <td aria-label="Photo cell">
+                  <PhotoCell url={photo.url} thumbnailUrl={photo.thumbnailUrl} />
                 </td>
                 <td aria-label="Download row">
-                  <DownloadCell album={album} />
+                  <DownloadCell photo={photo} />
                 </td>
               </tr>
             ))
@@ -45,4 +49,4 @@ const AlbumsTable: React.FC = () => {
   );
 };
 
-export default AlbumsTable;
+export default PhotosTable;

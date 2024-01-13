@@ -1,3 +1,3 @@
-# 🚀 Welcome to sushi-microfrontend-albums! 🚀
+# 🚀 Welcome to sushi-microfrontend-photos! 🚀
 
 TODO: Readme
