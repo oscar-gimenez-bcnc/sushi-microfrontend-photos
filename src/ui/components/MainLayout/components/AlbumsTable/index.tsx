@@ -1,6 +1,3 @@
-import AddressCell from './components/AddressCell';
-import CompanyCell from './components/CompanyCell';
-import NameCell from './components/AlbumCell';
 import TableHead from './components/TableHead';
 import useAlbumsTable from './useAlbumsTable';
 import LabelCell from './components/LabelCell';
@@ -28,23 +25,11 @@ const AlbumsTable: React.FC = () => {
             albums.map((album: IAlbum) => (
               <tr key={album.id}>
                 <th>{album.id}</th>
-                <td aria-label="Name cell">
-                  <NameCell album={album} />
+                <td aria-label="User ID cell">
+                  <LabelCell label={album.userId.toString()} />
                 </td>
-                <td aria-label="Email cell">
-                  <LabelCell label={album.email} />
-                </td>
-                <td aria-label="Address cell">
-                  <AddressCell address={album.address} />
-                </td>
-                <td aria-label="Phone cell">
-                  <LabelCell label={album.phone} />
-                </td>
-                <td aria-label="Website cell">
-                  <LabelCell label={album.website} />
-                </td>
-                <td aria-label="Company cell">
-                  <CompanyCell company={album.company} />
+                <td aria-label="Title cell">
+                  <LabelCell label={album.title} />
                 </td>
                 <td aria-label="Download row">
                   <DownloadCell album={album} />

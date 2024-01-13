@@ -4,27 +4,8 @@ import { type DownloadFileProps, downloadFile } from './helper';
 
 export function createCsvAlbumDownloader(): IAlbumDownloader {
   const convertAlbumToCsv = (album: IAlbum): string => {
-    const headers = 'ID,Name,Username,Email,Street,Suite,City,Zipcode,Lat,Lng,Phone,Website,CompanyName,CatchPhrase,Bs';
-    const row = [
-      album.id,
-      album.name,
-      album.username,
-      album.email,
-      album.address.street,
-      album.address.suite,
-      album.address.city,
-      album.address.zipcode,
-      album.address.geo.lat,
-      album.address.geo.lng,
-      album.phone,
-      album.website,
-      album.company?.name,
-      album.company?.catchPhrase,
-      album.company?.bs
-    ]
-      .map((field) => `"${field}"`)
-      .join(',');
-
+    const headers = 'ID,User ID,Title';
+    const row = [album.id, album.userId, album.title].map((field) => `"${field}"`).join(',');
     return `${headers}\n${row}`;
   };
 

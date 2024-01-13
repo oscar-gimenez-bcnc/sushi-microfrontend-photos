@@ -2,17 +2,17 @@ const path = require('path');
 
 describe('AlbumsTable spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:9001/');
+    cy.visit('http://localhost:9002/');
   });
 
   it('should show 10 albums when data is fetched', () => {
     cy.get('.loading.loading-spinner').should('not.exist');
-    cy.get('tbody tr').should('have.length', 10);
+    cy.get('tbody tr').should('have.length', 100);
   });
 
   it('should download a .json file', () => {
     cy.get('.loading.loading-spinner').should('not.exist');
-    cy.get('tbody tr').should('have.length', 10);
+    cy.get('tbody tr').should('have.length', 100);
 
     cy.get('tbody tr').first().find('[aria-label="Download button"]').click();
     const downloadsFolder = Cypress.config('downloadsFolder');
@@ -21,7 +21,7 @@ describe('AlbumsTable spec', () => {
 
   it('should download a .csv file', () => {
     cy.get('.loading.loading-spinner').should('not.exist');
-    cy.get('tbody tr').should('have.length', 10);
+    cy.get('tbody tr').should('have.length', 100);
 
     cy.get('[aria-label="Change download method"]').click();
     cy.get('tbody tr').first().find('[aria-label="Download button"]').click();
