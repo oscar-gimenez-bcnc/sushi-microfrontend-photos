@@ -2,7 +2,7 @@ const path = require('path');
 
 describe('PhotosTable spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:9002/');
+    cy.visit('http://localhost:9003/');
   });
 
   it('should show 5000 photos when data is fetched', () => {
