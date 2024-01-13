@@ -1,6 +1,6 @@
-import { createApiUserRepository } from '@/infrastructure/dataSource/ApiUserRepository';
-import { mockedUsers } from '../../../__mocks__/users';
-import { listUsers } from './listUsers';
+import { createApiAlbumRepository } from '@/infrastructure/dataSource/ApiAlbumRepository';
+import { mockedAlbums } from '../../../__mocks__/albums';
+import { listAlbums } from './listAlbums';
 
 beforeAll(() => {
   global.fetch = jest.fn();
@@ -13,13 +13,13 @@ afterEach(() => {
 it('should recover data from source', async () => {
   const mockFetch = jest.fn().mockResolvedValue({
     ok: true,
-    json: async () => await Promise.resolve(mockedUsers)
+    json: async () => await Promise.resolve(mockedAlbums)
   });
   global.fetch = mockFetch;
-  const userRepository = createApiUserRepository();
-  const result = await listUsers(userRepository)();
+  const albumRepository = createApiAlbumRepository();
+  const result = await listAlbums(albumRepository)();
 
-  expect(result).toEqual(mockedUsers);
+  expect(result).toEqual(mockedAlbums);
 });
 
 it('should throw an error when an exception raises', async () => {
@@ -28,8 +28,8 @@ it('should throw an error when an exception raises', async () => {
 
   let error;
   try {
-    const userRepository = createApiUserRepository();
-    await listUsers(userRepository)();
+    const albumRepository = createApiAlbumRepository();
+    await listAlbums(albumRepository)();
   } catch (e) {
     error = e;
   }
@@ -45,8 +45,8 @@ it('should throw an error when the fetch response is not ok', async () => {
 
   let error;
   try {
-    const userRepository = createApiUserRepository();
-    await listUsers(userRepository)();
+    const albumRepository = createApiAlbumRepository();
+    await listAlbums(albumRepository)();
   } catch (e) {
     error = e;
   }

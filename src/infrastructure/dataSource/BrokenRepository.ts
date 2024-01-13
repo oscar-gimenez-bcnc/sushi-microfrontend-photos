@@ -1,9 +1,9 @@
-import { type IUser } from '@/domain/models/IUser';
-import { type IUserRepository } from '@/domain/ports/IUserRepository';
+import { type IAlbum } from '@/domain/models/IAlbum';
+import { type IAlbumRepository } from '@/domain/ports/IAlbumRepository';
 
 // This adapter simulates a broken data source
-export function createBrokenRepository(): IUserRepository {
-  async function list(): Promise<IUser[]> {
+export function createBrokenRepository(): IAlbumRepository {
+  async function list(): Promise<IAlbum[]> {
     throw new Error(`You should know it ;-), you are pointing to a broken database.`);
   }
 

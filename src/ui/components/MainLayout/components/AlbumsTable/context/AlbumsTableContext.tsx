@@ -1,43 +1,43 @@
-import { type IUser } from '@/domain/models/IUser';
+import { type IAlbum } from '@/domain/models/IAlbum';
 import { createContext, useState } from 'react';
 
-interface IUsersTableContext {
+interface IAlbumsTableContext {
   isLoading: boolean;
   setIsLoading: (isLoading: boolean) => void;
   errorMessage: string | undefined;
   setErrorMessage: (errorMessage: string | undefined) => void;
-  users: IUser[];
-  setUsers: (users: IUser[]) => void;
+  albums: IAlbum[];
+  setAlbums: (albums: IAlbum[]) => void;
 }
 
-const UsersTableContext = createContext<IUsersTableContext>({
+const AlbumsTableContext = createContext<IAlbumsTableContext>({
   isLoading: false,
   setIsLoading: () => {},
   errorMessage: undefined,
   setErrorMessage: () => {},
-  users: [],
-  setUsers: () => {}
+  albums: [],
+  setAlbums: () => {}
 });
 
-interface UsersTableProviderProps {
+interface AlbumsTableProviderProps {
   children: React.ReactNode;
 }
 
-const UsersTableProvider: React.FC<UsersTableProviderProps> = ({ children }) => {
+const AlbumsTableProvider: React.FC<AlbumsTableProviderProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
-  const [users, setUsers] = useState<IUser[]>([]);
+  const [albums, setAlbums] = useState<IAlbum[]>([]);
 
   const contextValue = {
     isLoading,
     setIsLoading,
     errorMessage,
     setErrorMessage,
-    users,
-    setUsers
+    albums,
+    setAlbums
   };
 
-  return <UsersTableContext.Provider value={contextValue}>{children}</UsersTableContext.Provider>;
+  return <AlbumsTableContext.Provider value={contextValue}>{children}</AlbumsTableContext.Provider>;
 };
 
-export { UsersTableContext, UsersTableProvider };
+export { AlbumsTableContext, AlbumsTableProvider };

@@ -1,9 +1,9 @@
-import { type IUser } from '@/domain/models/IUser';
-import { type IUserRepository } from '@/domain/ports/IUserRepository';
+import { type IAlbum } from '@/domain/models/IAlbum';
+import { type IAlbumRepository } from '@/domain/ports/IAlbumRepository';
 
 // This adapter simulates an empty data source
-export function createEmptyUserRepository(): IUserRepository {
-  async function list(): Promise<IUser[]> {
+export function createEmptyAlbumRepository(): IAlbumRepository {
+  async function list(): Promise<IAlbum[]> {
     return [];
   }
 

@@ -5,7 +5,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const { dependencies } = require('./package.json');
 
 module.exports = {
-  name: 'SushiMicroFrontendUsers',
+  name: 'SushiMicroFrontendAlbums',
   entry: './src/index.ts',
   mode: 'development',
   devtool: 'source-map',
@@ -18,7 +18,7 @@ module.exports = {
       overlay: false
     },
     compress: true,
-    port: 9001
+    port: 9002
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
@@ -49,11 +49,11 @@ module.exports = {
       filename: 'index.html'
     }),
     new ModuleFederationPlugin({
-      name: 'SushiMicroFrontendUsers',
+      name: 'SushiMicroFrontendAlbums',
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './SushiMicroFrontendUsers': './src/App.tsx'
+        './SushiMicroFrontendAlbums': './src/App.tsx'
       },
       shared: {
         react: {

@@ -1,15 +1,15 @@
 import Header from './components/Header';
-import UsersTable from './components/UsersTable';
-import { UsersTableProvider } from './components/UsersTable/context/UsersTableContext';
+import AlbumsTable from './components/AlbumsTable';
+import { AlbumsTableProvider } from './components/AlbumsTable/context/AlbumsTableContext';
 
 const MainLayout: React.FC = () => {
   return (
     <div className="container mx-auto py-4">
       <Header />
       <div className="divider divider-primary" />
-      <UsersTableProvider>
-        <UsersTable />
-      </UsersTableProvider>
+      <AlbumsTableProvider>
+        <AlbumsTable />
+      </AlbumsTableProvider>
     </div>
   );
 };

@@ -1,19 +1,19 @@
 import AddressCell from './components/AddressCell';
 import CompanyCell from './components/CompanyCell';
-import NameCell from './components/UserCell';
+import NameCell from './components/AlbumCell';
 import TableHead from './components/TableHead';
-import useUsersTable from './useUsersTable';
+import useAlbumsTable from './useAlbumsTable';
 import LabelCell from './components/LabelCell';
 import DownloadCell from './components/DownloadCell';
 import ErrorData from './components/ErrorData';
-import { type IUser } from '@/domain/models/IUser';
+import { type IAlbum } from '@/domain/models/IAlbum';
 import EmptyData from './components/EmptyData';
 import Loader from './components/Loader';
 
-const UsersTable: React.FC = () => {
+const AlbumsTable: React.FC = () => {
   const {
-    states: { users, errorMessage, isLoading }
-  } = useUsersTable();
+    states: { albums, errorMessage, isLoading }
+  } = useAlbumsTable();
 
   return errorMessage === undefined ? (
     <div className="overflow-x-auto">
@@ -22,32 +22,32 @@ const UsersTable: React.FC = () => {
         <tbody>
           {isLoading === true ? (
             <Loader />
-          ) : users.length === 0 ? (
+          ) : albums.length === 0 ? (
             <EmptyData />
           ) : (
-            users.map((user: IUser) => (
-              <tr key={user.id}>
-                <th>{user.id}</th>
+            albums.map((album: IAlbum) => (
+              <tr key={album.id}>
+                <th>{album.id}</th>
                 <td aria-label="Name cell">
-                  <NameCell user={user} />
+                  <NameCell album={album} />
                 </td>
                 <td aria-label="Email cell">
-                  <LabelCell label={user.email} />
+                  <LabelCell label={album.email} />
                 </td>
                 <td aria-label="Address cell">
-                  <AddressCell address={user.address} />
+                  <AddressCell address={album.address} />
                 </td>
                 <td aria-label="Phone cell">
-                  <LabelCell label={user.phone} />
+                  <LabelCell label={album.phone} />
                 </td>
                 <td aria-label="Website cell">
-                  <LabelCell label={user.website} />
+                  <LabelCell label={album.website} />
                 </td>
                 <td aria-label="Company cell">
-                  <CompanyCell company={user.company} />
+                  <CompanyCell company={album.company} />
                 </td>
                 <td aria-label="Download row">
-                  <DownloadCell user={user} />
+                  <DownloadCell album={album} />
                 </td>
               </tr>
             ))
@@ -60,4 +60,4 @@ const UsersTable: React.FC = () => {
   );
 };
 
-export default UsersTable;
+export default AlbumsTable;

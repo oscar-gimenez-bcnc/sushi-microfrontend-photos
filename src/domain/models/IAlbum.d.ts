@@ -1,7 +1,7 @@
 import { type IAddress } from './IAddress';
 import { type ICompany } from './ICompany';
 
-export interface IUser {
+export interface IAlbum {
   id: number;
   name: string;
   username: string;

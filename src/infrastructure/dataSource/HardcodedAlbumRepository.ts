@@ -1,8 +1,8 @@
-import { type IUser } from '@/domain/models/IUser';
-import { type IUserRepository } from '@/domain/ports/IUserRepository';
+import { type IAlbum } from '@/domain/models/IAlbum';
+import { type IAlbumRepository } from '@/domain/ports/IAlbumRepository';
 
-export function createHardcodedUserRepository(): IUserRepository {
-  async function list(): Promise<IUser[]> {
+export function createHardcodedAlbumRepository(): IAlbumRepository {
+  async function list(): Promise<IAlbum[]> {
     return [
       {
         id: 1,

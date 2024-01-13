@@ -1,12 +1,12 @@
-import { type IUser } from '@/domain/models/IUser';
+import { type IAlbum } from '@/domain/models/IAlbum';
 import IconDownload from '@/ui/components/shared/icons/IconDownload';
 import useDownloadCell from './useDownloadCell';
 
 interface DownloadCellProps {
-  user: IUser;
+  album: IAlbum;
 }
 
-const DownloadCell: React.FC<DownloadCellProps> = ({ user }) => {
+const DownloadCell: React.FC<DownloadCellProps> = ({ album }) => {
   const {
     actions: { handleDownloadClick }
   } = useDownloadCell();
@@ -17,7 +17,7 @@ const DownloadCell: React.FC<DownloadCellProps> = ({ user }) => {
       type="button"
       className="btn btn-ghost btn-xs "
       onClick={() => {
-        void handleDownloadClick(user);
+        void handleDownloadClick(album);
       }}
     >
       <IconDownload className="h-6 w-6 py-1" />
