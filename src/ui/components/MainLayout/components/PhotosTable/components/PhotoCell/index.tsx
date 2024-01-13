@@ -16,13 +16,13 @@ const PhotoCell: React.FC<PhotoCellProps> = ({ photo }) => {
       >
         <div className="avatar">
           <div className="mask mask-squircle h-12 w-12">
-            <img src={photo.thumbnailUrl} />
+            <img src={photo.thumbnailUrl} alt={`Thumbnail from ${photo.id}`} />
           </div>
         </div>
       </div>
       <dialog id={`modal_${photo.id}`} className="modal">
         <div className="modal-box">
-          <img src={photo.url} />
+          <img src={photo.url} alt={`Photo from ${photo.id}`} />
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
