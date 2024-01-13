@@ -1,12 +1,12 @@
 const TableHead: React.FC = () => {
   return (
-    <thead>
-      <tr>
-        <th aria-label="Table head Id" />
-        <th>Photo</th>
-        <th>User ID</th>
-        <th>Title</th>
-        <th aria-label="Table head download button" />
+    <thead className="whitespace-nowrap text-xs font-bold leading-4 text-gray-500">
+      <tr className="border-b">
+        <th className="px-4 py-3 text-left" aria-label="Table head Id" />
+        <th className="px-4 py-3 text-left">Photo</th>
+        <th className="px-4 py-3 text-left">User ID</th>
+        <th className="px-4 py-3 text-left">Title</th>
+        <th className="px-4 py-3 text-left" aria-label="Table head download button" />
       </tr>
     </thead>
   );

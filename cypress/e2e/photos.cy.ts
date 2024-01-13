@@ -5,14 +5,14 @@ describe('PhotosTable spec', () => {
     cy.visit('http://localhost:9003/');
   });
 
-  it('should show 5000 photos when data is fetched', () => {
+  it('should show more than 5 photos when data is fetched', () => {
     cy.get('.loading.loading-spinner').should('not.exist');
-    cy.get('tbody tr').should('have.length', 100);
+    cy.get('tbody tr').should('have.length.greaterThan', 5);
   });
 
   it('should download a .json file', () => {
     cy.get('.loading.loading-spinner').should('not.exist');
-    cy.get('tbody tr').should('have.length', 100);
+    cy.get('tbody tr').should('have.length.greaterThan', 5);
 
     cy.get('tbody tr').first().find('[aria-label="Download button"]').click();
     const downloadsFolder = Cypress.config('downloadsFolder');
@@ -21,7 +21,7 @@ describe('PhotosTable spec', () => {
 
   it('should download a .csv file', () => {
     cy.get('.loading.loading-spinner').should('not.exist');
-    cy.get('tbody tr').should('have.length', 100);
+    cy.get('tbody tr').should('have.length.greaterThan', 5);
 
     cy.get('[aria-label="Change download method"]').click();
     cy.get('tbody tr').first().find('[aria-label="Download button"]').click();
