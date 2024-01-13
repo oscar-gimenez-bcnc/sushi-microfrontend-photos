@@ -26,14 +26,14 @@ const PhotosTable: React.FC = () => {
             photos.map((photo: IPhoto) => (
               <tr key={photo.id}>
                 <th>{photo.id}</th>
+                <td aria-label="Photo cell">
+                  <PhotoCell photo={photo} />
+                </td>
                 <td aria-label="Album ID cell">
                   <LabelCell label={photo.albumId.toString()} />
                 </td>
                 <td aria-label="Title cell">
                   <LabelCell label={photo.title} />
-                </td>
-                <td aria-label="Photo cell">
-                  <PhotoCell url={photo.url} thumbnailUrl={photo.thumbnailUrl} />
                 </td>
                 <td aria-label="Download row">
                   <DownloadCell photo={photo} />
