@@ -14,17 +14,6 @@ const PhotosTable: React.FC = () => {
     states: { photos, errorMessage, isLoading }
   } = usePhotosTable();
 
-  /* const Row: any = ({ index }: { index: number }) => {
-    return (
-      <tr>
-        <td className="h-9">Row {index}</td>
-        <td>Col</td>
-        <td>Col 3</td>
-        <td>Col 4</td>
-      </tr>
-    );
-  }; */
-
   const Row: any = ({ index }: { index: number }) => {
     const photo = photos[index];
     return (
@@ -57,7 +46,7 @@ const PhotosTable: React.FC = () => {
           height={600}
           width="100%"
           itemCount={photos.length}
-          itemSize={36} // h-9
+          itemSize={36} // Equivalent to h-9
           header={<TableHead />}
           row={Row}
         />
