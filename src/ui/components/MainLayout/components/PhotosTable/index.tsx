@@ -18,7 +18,9 @@ const PhotosTable: React.FC = () => {
     const photo = photos[index];
     return (
       <tr className="border-b text-sm leading-5" key={photo.id}>
-        <th className="px-4 py-3">{photo.id}</th>
+        <th className="px-4 py-3">
+          <LabelCell label={photo.id.toString()} />
+        </th>
         <td className="h-9 px-4 py-3" aria-label="Photo cell">
           <PhotoCell photo={photo} />
         </td>
