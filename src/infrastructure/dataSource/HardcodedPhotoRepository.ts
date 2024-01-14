@@ -1,8 +1,8 @@
 import { type IPhoto } from '@/domain/models/IPhoto';
 import { type IPhotoRepository } from '@/domain/ports/IPhotoRepository';
 
-export function createHardcodedPhotoRepository(): IPhotoRepository {
-  async function list(): Promise<IPhoto[]> {
+export const createHardcodedPhotoRepository = (): IPhotoRepository => {
+  const list = async (): Promise<IPhoto[]> => {
     return [
       {
         albumId: 1,
@@ -33,7 +33,7 @@ export function createHardcodedPhotoRepository(): IPhotoRepository {
         thumbnailUrl: 'https://via.placeholder.com/150/d32776'
       }
     ];
-  }
+  };
 
   return { list };
-}
+};

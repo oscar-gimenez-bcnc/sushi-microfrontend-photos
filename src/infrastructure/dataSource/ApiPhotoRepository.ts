@@ -1,8 +1,8 @@
 import { type IPhoto } from '@/domain/models/IPhoto';
 import { type IPhotoRepository } from '@/domain/ports/IPhotoRepository';
 
-export function createApiPhotoRepository(): IPhotoRepository {
-  async function list(): Promise<IPhoto[]> {
+export const createApiPhotoRepository = (): IPhotoRepository => {
+  const list = async (): Promise<IPhoto[]> => {
     const source = 'https://jsonplaceholder.typicode.com/photos';
 
     const res = await fetch(source);
@@ -13,7 +13,7 @@ export function createApiPhotoRepository(): IPhotoRepository {
     const photos = await res.json();
 
     return photos;
-  }
+  };
 
   return { list };
-}
+};

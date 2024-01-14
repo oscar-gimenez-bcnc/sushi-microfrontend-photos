@@ -5,8 +5,10 @@ interface createApIPhotoRepositoryProps {
   cacheActions: ICacheActions;
 }
 
-export function createApiPhotoWithCacheRepository({ cacheActions }: createApIPhotoRepositoryProps): IPhotoRepository {
-  async function list(): Promise<IPhoto[]> {
+export const createApiPhotoWithCacheRepository = ({
+  cacheActions
+}: createApIPhotoRepositoryProps): IPhotoRepository => {
+  const list = async (): Promise<IPhoto[]> => {
     const cache = cacheActions.getPhotosCacheData();
 
     if (cache !== undefined) {
@@ -39,7 +41,7 @@ export function createApiPhotoWithCacheRepository({ cacheActions }: createApIPho
     });
 
     return photos;
-  }
+  };
 
   return { list };
-}
+};
