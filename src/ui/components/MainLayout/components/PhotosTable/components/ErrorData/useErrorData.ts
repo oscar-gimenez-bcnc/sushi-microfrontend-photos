@@ -1,6 +1,6 @@
 import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext } from 'react';
-import { PhotosTableContext } from '../../context/PhotosTableContext';
+import { PhotosTableContext } from '../../contexts/PhotosTableContext';
 
 const useErrorData = (): IHookResponse => {
   const { errorMessage, setErrorMessage } = useContext(PhotosTableContext);

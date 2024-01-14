@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import PhotosTable from './components/PhotosTable';
-import { PhotosTableProvider } from './components/PhotosTable/context/PhotosTableContext';
+import { PhotosTableProvider } from './components/PhotosTable/contexts/PhotosTableContext';
 
 const MainLayout: React.FC = () => {
   return (

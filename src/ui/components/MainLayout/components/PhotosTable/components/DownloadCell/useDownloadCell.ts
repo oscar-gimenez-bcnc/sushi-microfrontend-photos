@@ -2,7 +2,7 @@ import { downloadPhoto } from '@/application/downloadPhoto/downloadPhoto';
 import { type IPhoto } from '@/domain/models/IPhoto';
 import { createCsvPhotoDownloader } from '@/infrastructure/dataDownload/CsvPhotoDownloader';
 import { createJsonPhotoDownloader } from '@/infrastructure/dataDownload/JsonPhotoDownloader';
-import { GlobalContext } from '@/ui/context/GlobalContext';
+import { GlobalContext } from '@/ui/contexts/GlobalContext';
 import { DownloadMethods } from '@/ui/shared/enums/enums';
 import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext } from 'react';

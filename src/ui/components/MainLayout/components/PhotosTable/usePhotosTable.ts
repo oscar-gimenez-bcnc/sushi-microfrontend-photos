@@ -1,7 +1,7 @@
-import { GlobalContext } from '@/ui/context/GlobalContext';
+import { GlobalContext } from '@/ui/contexts/GlobalContext';
 import { type IHookResponse } from '@/ui/shared/types/types';
 import { useContext, useEffect } from 'react';
-import { PhotosTableContext } from './context/PhotosTableContext';
+import { PhotosTableContext } from './contexts/PhotosTableContext';
 import { type IPhotoRepository } from '@/domain/ports/IPhotoRepository';
 import { createApiPhotoRepository } from '@/infrastructure/dataSource/ApiPhotoRepository';
 import { createBrokenRepository } from '@/infrastructure/dataSource/BrokenRepository';
