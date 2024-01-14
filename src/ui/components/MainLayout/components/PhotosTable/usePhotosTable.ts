@@ -17,6 +17,7 @@ const usePhotosTable = (): IHookResponse => {
 
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
+      setIsLoading(true);
       setErrorMessage(undefined);
 
       try {
