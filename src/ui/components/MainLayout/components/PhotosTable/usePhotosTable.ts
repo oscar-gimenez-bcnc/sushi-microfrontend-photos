@@ -9,9 +9,10 @@ import { createEmptyPhotoRepository } from '@/infrastructure/dataSource/EmptyRep
 import { createHardcodedPhotoRepository } from '@/infrastructure/dataSource/HardcodedPhotoRepository';
 import { DataSources } from '@/ui/shared/enums/enums';
 import { listPhotos } from '@/application/listPhotos/listPhotos';
+import { createApiPhotoWithCacheRepository } from '@/infrastructure/dataSource/ApiPhotoWithCacheRepository';
 
 const usePhotosTable = (): IHookResponse => {
-  const { dataSource } = useContext(GlobalContext);
+  const { dataSource, isCacheEnabled, cacheActions } = useContext(GlobalContext);
   const { isLoading, photos, errorMessage, setErrorMessage, setPhotos, setIsLoading } = useContext(PhotosTableContext);
 
   useEffect(() => {
@@ -20,7 +21,10 @@ const usePhotosTable = (): IHookResponse => {
       setIsLoading(true);
       try {
         const photoRepositoryMap: { [key in DataSources]: () => IPhotoRepository } = {
-          [DataSources.EXTERNAL]: createApiPhotoRepository,
+          [DataSources.EXTERNAL]:
+            isCacheEnabled && cacheActions !== undefined
+              ? () => createApiPhotoWithCacheRepository({ cacheActions })
+              : createApiPhotoRepository,
           [DataSources.INTERNAL]: createHardcodedPhotoRepository,
           [DataSources.EMPTY]: createEmptyPhotoRepository,
           [DataSources.BROKEN]: createBrokenRepository
