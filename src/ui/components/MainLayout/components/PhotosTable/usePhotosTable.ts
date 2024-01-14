@@ -18,7 +18,7 @@ const usePhotosTable = (): IHookResponse => {
   useEffect(() => {
     const dataFetcher = async (): Promise<void> => {
       setErrorMessage(undefined);
-      setIsLoading(true);
+
       try {
         const photoRepositoryMap: { [key in DataSources]: () => IPhotoRepository } = {
           [DataSources.EXTERNAL]:
